@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="icon" href="assets/images/favicon.png" />
+    <title>Cart page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+
+<body>
+    <!-- Header -->
+    <header class="bg-gray-dark sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4">
+            <!-- Left section: Logo -->
+            <a href="../" class="flex items-center">
+              <div>
+                  <img src="assets/images/template-white-logo.png" alt="Logo" class="h-14 w-auto mr-4">
+              </div>
+            </a>
+
+            <!-- Hamburger menu (for mobile) -->
+            <div class="flex lg:hidden">
+                <button id="hamburger" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+           
+
+            <!-- Right section: Buttons (for desktop) -->
+            <div class="hidden lg:flex items-center space-x-4 relative" style="padding-right: 20px;">
+              <a href="register"
+                  class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-full inline-block">Register</a>
+              
+          </div>
+        </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <nav id="mobile-menu-placeholder" class="mobile-menu hidden flex-col items-center space-y-8 lg:hidden">
+      
+      <div class="flex flex-col mt-6 space-y-2 items-center">
+          <a href="register"
+              class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary font-semibold px-4 py-2 rounded-full flex items-center justify-center min-w-[110px]">Register</a>
+         
+      </div>
+      
+    </nav>
+
+    <!-- Register and login -->
+    <section id="register-login-page" class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="md:w-1/2 bg-white rounded-lg shadow-md p-4 md:p-10 md:m-10">
+                    <h2 class="text-2xl font-semibold mb-4">Login</h2>
+                    <form action="../login" method="post">
+                        <div class="mb-3">
+                            <label for="login-email" class="block ">Username</label>
+                            <input type="text" id="login-email" name="username" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                         <div class="mb-3">
+                            <label for="login-password" class="block ">Role</label>
+                            <select  name="role" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
+                                <option value="">Select Role</option><option value="buyer">Buyer</option><option value="seller">Seller</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="block ">Password</label>
+                            <input type="password" id="password" name="password" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        </div>
+                        <a style="color: black;" href="../register"> Not Registered? Signup Here</a>
+
+                        <b style="color: red;">$(message)</b>
+                        
+                        
+                        <button type="submit" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-3 rounded-full w-full">Login</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

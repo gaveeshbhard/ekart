@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>
+
+    </title>
+</head>
+<body>
+<video autoplay controls><source src="aa.mp4"></video>
+
+<a id="same" download>ddwn</a>
+<button onclick="start()">Play</button>
+</body>
+<script type="text/javascript">
+    const chunks = [];
+    var stream ;
+ async   function dwn(video) {
+try{
+stream= video.captureStream ? video.captureStream() : video.mozCaptureStream();
+//await video.play();
+//const freshStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
+const mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/mp4' });
+
+
+// 2. Push binary video data fragments into an array as they become available
+mediaRecorder.ondataavailable = (e) => {
+    if (e.data.size > 0) chunks.push(e.data);
+    console.log(e);
+};
+
+// 3. Assemble the full video Blob when recording stops
+mediaRecorder.onstop = () => {
+    const videoBlob = new Blob(chunks, { type: 'video/webm' });
+    console.log("Video Blob created:", videoBlob);
+    var link = document.createElement(a);
+    link.innerHTML="dwn";
+    link.download = "video.mp4";
+
+    link.href = URL.createObjectURL(videoBlob);
+    document.body.append(link);
+    link.click();
+};
+mediaRecorder.onerror = (event) => {
+    console.log(event);
+ }
+
+// Start recording (Make sure the video is actively playing)
+mediaRecorder.start();
+   }
+   catch(e){
+    console.log("e:"+e);
+   } 
+}
+(async function(){
+await document.querySelector('video').play();
+var inter = setTimeout(async function(){
+dwn(document.querySelector('video'));
+
+},5000);
+
+})();
+
+function start(){
+
+}
+</script>
+</html>

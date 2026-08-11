@@ -1,0 +1,44 @@
+<html>
+    <body>
+        <div class="formdiv">
+        <h3>Add New Item</h3>
+        <form encType="multipart/form-data" method="post" action="../item">
+        <div className="additem">
+            <label htmlFor="name">Name:</label>
+            <input
+            type="text"
+            id="name"
+            name="name"
+            />
+        </div> 
+        <div className="additem">
+            <label htmlFor="picture">Picture:</label>
+            <input
+            type="file"
+            id="picture"
+            name="picture"
+            />
+        </div>
+        <div className="additem">
+            <label htmlFor="name">Price:</label>
+            <input
+            type="number"
+            id="price"
+            name="price"
+            />
+        </div>
+        <div className="additem">
+            <label htmlFor="name">Delivery Time(in days):</label>
+            <input
+            type="number"
+            id="deliveryTime"
+            name="deliveryTime"
+            />
+        </div >
+        <button type="submit">
+            Submit
+        </button>
+        </form>
+        </div>
+    </body>
+</html>

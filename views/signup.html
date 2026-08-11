@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Signup Page
+    </title>
+</head>
+<body>
+    <div class="container" style="width: 300px;height: 320px;margin: auto;margin-top:100px;padding: 50px;border:1px solid black; font-family: sans-serif;letter-spacing: 2px; text-align: center;">
+        <h2>Signup</h2><br/>
+        <form action="signup" method="post" id="form" onsubmit="return submit()">
+        <input type="text" id="username" name="username" onblur="checkUsername()" placeholder="Enter Username" style="width: 200px;border: none;border-bottom:2px solid black;margin: 20px;outline: none;"/><br/>
+        <div id="usermsg"></div>
+        <select name="role" id="role" style="width: 200px;border: none;border-bottom:2px solid black;margin: 20px; margin-bottom: 50px;outline: none;"><option value="">Select Role</option><option value="buyer">Buyer</option><option value="seller">Seller</option><option value="admin">Admin</option></select><br/>
+        <div id="rolemsg"></div>
+        <input type="password" id="password" onkeyup="checkPassword()" name="password" placeholder="Password" style="width: 200px;border: none;border-bottom:2px solid black;margin: 20px; margin-bottom: 50px;outline: none;"/><br/>
+        <div id="passmsg"></div>
+        <input type="password" id="password2" onkeyup="checkConfirmPassword()" placeholder="Confirm Password" style="width: 200px;border: none;border-bottom:2px solid black;margin: 20px; margin-bottom: 50px;outline: none;"/><br/>
+        <div id="confirmpassmsg"></div>
+        <button type="submit" onclick="submit()"> SIGNUP </button>
+        </form>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    //var usercheck = false;
+   
+    function checkPassword(){
+        console.log(document.querySelector("#password").value.length)
+        if(document.querySelector("#password").value.length<8){
+            document.querySelector("#passmsg").innerHTML="Password should be atleast 8 characters!";
+            return false;
+        }
+        else{
+            document.querySelector("#passmsg").innerHTML="";
+
+            return true;
+        }
+    }
+    function checkConfirmPassword(){
+        if(document.querySelector("#password").value!=document.querySelector("#password2").value){
+            document.querySelector("#confirmpassmsg").innerHTML="Passwords do not Match!";
+            return false;
+        }
+        else{
+            document.querySelector("#confirmpassmsg").innerHTML="";
+
+            return true;
+        }
+    }
+     function checkRole(){
+        if(document.querySelector("#role").value==""){
+            document.querySelector("#rolemsg").innerHTML="Select a Role!";
+            return false;
+        }
+        else{
+            document.querySelector("#rolemsg").innerHTML="";
+
+            return true;
+        }
+    }
+    var checkuser = false;
+    function submit(event){
+        event.preventDefault();
+        // if(checkuser && checkPassword() && checkConfirmPassword() && checkRole()){
+        //    document.querySelector('#form').submit();
+        // }
+        return (checkuser && checkPassword() && checkConfirmPassword() && checkRole())
+        console.log(checkUsername())
+    }
+    async function checkUsername(){
+         document.querySelector("#usermsg").innerHTML="Checking Availability!";
+
+        fetch('username/'+document.querySelector('#username').value)
+            .then(x => x.json())
+            .then(x => {
+                if(x.available){
+                    document.querySelector("#usermsg").innerHTML="Username is Available!";
+                    checkuser= true;
+                }
+              else{
+                    document.querySelector("#usermsg").innerHTML="Username isnt available!";
+                    checkuser= false;
+                }
+            })
+            .catch(error => {
+                document.querySelector("#usermsg").innerHTML=('Error fetching data'); // Handle errors here
+                checkuser= false;
+            });
+    }
+</script>
+</html>
