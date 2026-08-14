@@ -74,6 +74,7 @@ app.get('/signin', (req, res) => {
 
 
 
+
 app.post('/login', user.login);
 app.post('/signup', user.signup);
 app.get('/currentuser',user.getCurrentUser);
