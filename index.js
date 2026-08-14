@@ -18,15 +18,17 @@ app.use(express.json());
 app.use(express.static(__dirname+'/static/src/'));
 app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
+
 app.use(session(config.session));  
 
   app.use((req, res, next) => {
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.set('Pragma', 'no-cache'); // For HTTP 1.0 backward compatibility
     res.set('Expires', '0');       // Proxies treat 0 as expired
+    res.set("trust proxy", 1);
+    
     next();
 });
-
 
 app.get('/i', (req, res) => {
   res.sendFile(__dirname+"/views/i.html"); 
