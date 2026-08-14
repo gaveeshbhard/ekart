@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -270,5 +270,4 @@ app.listen(PORT,'0.0.0.0', () => {
 
 
 
->>>>>>> ee2b06e125b99c56378f572cd4d75872886feddc
   
