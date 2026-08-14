@@ -25,11 +25,11 @@ app.use(session(config.session));
     res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
     res.set('Pragma', 'no-cache'); // For HTTP 1.0 backward compatibility
     res.set('Expires', '0');       // Proxies treat 0 as expired
-    res.set("trust proxy", 1);
+    
     
     next();
 });
-
+app.set("trust proxy", 1);
 app.get('/i', (req, res) => {
   res.sendFile(__dirname+"/views/i.html"); 
 });
