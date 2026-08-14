@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const { Pool } = require('pg');
 const connectionString = "postgresql://neondb_owner:npg_OEDkR0rtT8gy@ep-frosty-hill-av2fd9ml-pooler.c-11.us-east-1.aws.neon.tech/neondb?channel_binding=require&sslmode=verify-full";
 // Configure your database credentials
@@ -362,5 +362,4 @@ module.exports = {
   Selectwhere: (TABLE_NAME,FIELD_NAME,FIELD_VALUE)=> select(TABLE_NAME,FIELD_NAME,FIELD_VALUE),
   updateTable: (OBJECT,TABLE_NAME,SELECTOR)=>updateTableQuery(OBJECT,TABLE_NAME,SELECTOR),
   joinTables: (TABLE1,TABLE2,JOIN_TYPE,TABLE1_KEY,TABLE2_KEY,SELECTOR_KEY,SELECTOR_VALUE)=>joinTablesQuery(TABLE1,TABLE2,JOIN_TYPE,TABLE1_KEY,TABLE2_KEY,SELECTOR_KEY,SELECTOR_VALUE)
->>>>>>> ee2b06e125b99c56378f572cd4d75872886feddc
 };
