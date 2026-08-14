@@ -1,12 +1,16 @@
 const { Pool } = require('pg');
-
+const connectionString = "postgresql://neondb_owner:npg_OEDkR0rtT8gy@ep-frosty-hill-av2fd9ml-pooler.c-11.us-east-1.aws.neon.tech/neondb?channel_binding=require&sslmode=verify-full";
 // Configure your database credentials
+// const pool = new Pool({
+//   user: 'postgres',          // Your PostgreSQL username
+//   host: 'localhost',         // Server hosting your database
+//   database: 'ekart',    // Your database name
+//   password: '12345', // Your database password
+//   port: 5432,                // Default PostgreSQL port
+// });
+
 const pool = new Pool({
-  user: 'postgres',          // Your PostgreSQL username
-  host: 'localhost',         // Server hosting your database
-  database: 'ekart',    // Your database name
-  password: '12345', // Your database password
-  port: 5432,                // Default PostgreSQL port
+    connectionString,
 });
 
 
