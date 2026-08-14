@@ -6,7 +6,8 @@ const session_config = {
         saveUninitialized: false,              // Forces uninitialized sessions to not be saved
         cookie: { 
           maxAge: 60000 * 30,                  // Session expires in 30 minutes (in milliseconds)
-          secure:  true                       // Protects against XSS attacks
+          secure:  true,                       // Protects against XSS attacks
+          proxy: true
         }
 };
 
