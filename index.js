@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.static(__dirname+'/static/src/'));
 app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
-
+app.set("trust proxy", 1);
 app.use(session(config.session));  
 
   app.use((req, res, next) => {
@@ -29,7 +29,7 @@ app.use(session(config.session));
     
     next();
 });
-app.set("trust proxy", 1);
+
 app.get('/i', (req, res) => {
   res.sendFile(__dirname+"/views/i.html"); 
 });
